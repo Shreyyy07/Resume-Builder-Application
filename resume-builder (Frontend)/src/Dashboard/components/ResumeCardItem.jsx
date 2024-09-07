@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 function ResumeCardItem(resume) {
   return (
-    <Link to={'/dashboard/resume/'+resume.documentId+"/edit"}>
+    <Link to={'/Dashboard/resume/'+resume.documentId+"/edit"}>
         <div className='p-14  bg-gradient-to-b flex items-center justify-center
           from-pink-100 via-purple-200 to-blue-200
         h-[280px] rounded-t-lg border-t-4 gap-5'

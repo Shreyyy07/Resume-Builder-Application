@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Delete } from "lucide-react";
 // const {default:axios}=require("axios");
 
 const API_KEY=import.meta.env.VITE_STRAPI_API_KEY;
@@ -22,5 +23,7 @@ const GetResumeById=(id)=>axiosClient.get('/user-resumes/'+id+"?populate=*")
 export default{
     CreateNewResume,
     GetUserResumes,
-    UpdateResumeDetail
+    UpdateResumeDetail,
+    GetResumeById,
+    // DeleteResumeById,
 }

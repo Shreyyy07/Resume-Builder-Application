@@ -37,7 +37,7 @@ function AddResume() {
             console.log(resp.data.data.documentId);
             if(resp){
                 setLoading(false);
-                navigation('/dashboard/resume/'+resp.data.data.documentId+"/edit");
+                navigation('/Dashboard/resume/'+resp.data.data.documentId+"/edit");
             }
         },(error)=>{
             setLoading(false);
