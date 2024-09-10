@@ -4,7 +4,7 @@ import { useUser } from '@clerk/clerk-react'
 import GlobalApi from './../../service/GlobalApi'
 import ResumeCardItem from './components/ResumeCardItem';
 
-function Dashboard() {
+function dashboard() {
 
   const{user}=useUser();
   const [resumeList,setResumeList]=useState([]);
@@ -43,4 +43,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default dashboard

@@ -1,9 +1,9 @@
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
-import EducationalPreview from '@/Dashboard/components/preview/EducationalPreview'
-import ExperiencePreview from '@/Dashboard/components/preview/ExperiencePreview'
-import PersonalDetailPreview from '@/Dashboard/components/preview/PersonalDetailPreview'
-import SkillsPreview from '@/Dashboard/components/preview/SkillsPreview'
-import SummeryPreview from '@/Dashboard/components/preview/SummeryPreview'
+import EducationalPreview from '@/dashboard/components/preview/EducationalPreview'
+import ExperiencePreview from '@/dashboard/components/preview/ExperiencePreview'
+import PersonalDetailPreview from '@/dashboard/components/preview/PersonalDetailPreview'
+import SkillsPreview from '@/dashboard/components/preview/SkillsPreview'
+import SummeryPreview from '@/dashboard/components/preview/SummeryPreview'
 import React,{useContext} from 'react'
 
 function ResumePreview() {
