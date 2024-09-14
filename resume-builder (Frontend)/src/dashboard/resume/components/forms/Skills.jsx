@@ -8,6 +8,7 @@ import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import GlobalApi from './../../../../../service/GlobalApi'
 import { useParams } from 'react-router-dom'
 import { toast } from 'sonner'
+
 function Skills() {
 
     const [skillsList,setSkillsList]=useState([{
@@ -66,6 +67,7 @@ function Skills() {
             skills:skillsList
         })
     },[skillsList])
+    
   return (
     <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
     <h2 className='font-bold text-lg'>Skills</h2>

@@ -19,7 +19,7 @@ function Header() {
     <UserButton/>
     </div>:
     <Link to={'../../auth/sign-in'}>
-    <Button>Get Started</Button>
+    <Button className="bg-blue-500 hover:bg-blue-600">Get Started</Button>
     {/* if not signed in then show this get started button */}
     </Link>
     }

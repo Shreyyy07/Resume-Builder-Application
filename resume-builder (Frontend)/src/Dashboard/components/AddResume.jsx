@@ -34,10 +34,10 @@ function AddResume() {
             }
         }
         GlobalApi.CreateNewResume(data).then(resp=>{
-            console.log(resp.data.data.documentId);
+            console.log(resp);
             if(resp){
                 setLoading(false);
-                navigation('/Dashboard/resume/'+resp.data.data.documentId+"/edit");
+                navigation('/dashboard/resume/'+uuid+"/edit");
             }
         },(error)=>{
             setLoading(false);
