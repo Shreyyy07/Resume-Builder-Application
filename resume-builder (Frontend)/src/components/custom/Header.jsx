@@ -1,13 +1,16 @@
-import React from 'react'
+// import react from 'react'
 import {Button} from '../ui/button'
 import {Link} from 'react-router-dom'
 import { UserButton,useUser } from '@clerk/clerk-react'
 
 function Header() {
-  const {user,isSignedIn}=useUser();
+  const {isSignedIn}=useUser();
   return (
     <div className='p-3 px-5 flex justify-between shadow-md'>
+
+   <Link to={'/'}>
    <img src='/logo.svg' width={200} height={100} />
+   </Link>
 
    {isSignedIn ? //if the user is signed in then we will show this button//
    <div className='flex gap-3 items-center'> 

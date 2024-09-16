@@ -1,6 +1,6 @@
-// import React from 'react'
-import { useState } from 'react'
 import { Loader2, PlusSquare } from 'lucide-react'
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from 'react'
 import {
     Dialog,
     DialogContent,
@@ -13,12 +13,14 @@ import { Input } from '@/components/ui/input'
 import { v4 as uuidv4 } from 'uuid';
 import GlobalApi from './../../../service/GlobalApi'
 import { useUser } from '@clerk/clerk-react'
-import { useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
+
+
 
 function AddResume() {
-   
+
     const [openDialog,setOpenDialog]=useState(false)
-    const [resumeTitle,setResumetitle]=useState();
+    const [resumeTitle,setResumeTitle]=useState();
     const {user}=useUser();
     const [loading,setLoading]=useState(false);
     const navigation=useNavigate();
@@ -33,53 +35,58 @@ function AddResume() {
                 userName:user?.fullName
             }
         }
+
         GlobalApi.CreateNewResume(data).then(resp=>{
-            console.log(resp);
-            if(resp){
+            console.log(resp.data.data.documentId);
+            if(resp)
+            {
                 setLoading(false);
-                navigation('/dashboard/resume/'+uuid+"/edit");
+                navigation('/dashboard/resume/'+resp.data.data.documentId+"/edit");
             }
+        // eslint-disable-next-line no-unused-vars
         },(error)=>{
             setLoading(false);
         })
 
     }
   return (
-    <div>
-      <div className='p-14 py-24 flex items-center 
-      justify-center bg-secondary border rounded-lg h-[280px]
-      hover:scale-105 transition-all hover:shadow-md
-      cursor-pointer border-dashed'
-      onClick={()=>setOpenDialog(true)}
-      >   
-        <PlusSquare/>
-      </div>
+    <div >
+        <div className='p-14 py-24 border 
+        items-center flex 
+        justify-center bg-secondary
+        rounded-lg h-[280px]
+        hover:scale-105 transition-all hover:shadow-md
+        cursor-pointer border-dashed'
+        onClick={()=>setOpenDialog(true)}
+        >
+            <PlusSquare  />
+        </div>
 
-      <Dialog open={openDialog}>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Create New Resume</DialogTitle>
-      <DialogDescription>
-        <p>Add the title for your resume</p>
-       <Input className="my-2" 
-       placeholder="Ex. Full Stack resume"
-       onChange={(e)=>setResumetitle(e.target.value)}
-       />
-      </DialogDescription>
-      <div className='flex justify-end gap-5'>
-        <Button onClick={()=>setOpenDialog(false)} variant="ghost">Cancel</Button>
-        <Button 
-        disabled={!resumeTitle||loading}
-        onClick={()=>onCreate()}>
-            {loading?
-            <Loader2 className='animate-spin'/>:'Create'
-        }
+        <Dialog open={openDialog}>
        
-        </Button>
-      </div>
-    </DialogHeader>
-  </DialogContent>
-</Dialog>
+        <DialogContent>
+            <DialogHeader>
+            <DialogTitle>Create New Resume</DialogTitle>
+            <DialogDescription>
+                <p>Add a title for your new resume</p>
+                <Input className="my-2" 
+                placeholder="Ex.Full Stack resume"
+                onChange={(e)=>setResumeTitle(e.target.value)}
+                />
+            </DialogDescription>
+            <div className='flex justify-end gap-5'>
+                <Button onClick={()=>setOpenDialog(false)} variant="ghost">Cancel</Button>
+                <Button 
+                    disabled={!resumeTitle||loading}
+                onClick={()=>onCreate()}>
+                    {loading?
+                    <Loader2 className='animate-spin' /> :'Create'   
+                }
+                    </Button>
+            </div>
+            </DialogHeader>
+        </DialogContent>
+        </Dialog>
 
     </div>
   )

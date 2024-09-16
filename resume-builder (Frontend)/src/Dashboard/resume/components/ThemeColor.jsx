@@ -48,7 +48,7 @@ function ThemeColor() {
   <PopoverContent>
     <h2 className='mb-2 text-sm font-bold'>Select Theme Color</h2>
     <div className='grid grid-cols-5 gap-3'>
-        {colors.map((item,index)=>(
+        {colors.map((item)=>(
             // eslint-disable-next-line react/jsx-key
             <div 
             onClick={()=>onColorSelect(item)}
